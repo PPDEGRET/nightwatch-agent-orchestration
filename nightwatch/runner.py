@@ -25,6 +25,10 @@ from .errors import (
 from .models import Brief, TaskSpec
 
 
+# ponytail: preserve the host path class when Windows behavior is mocked in cross-platform tests.
+_NATIVE_PATH = type(Path())
+
+
 @dataclass(frozen=True)
 class TaskContext:
     brief: Brief
@@ -464,7 +468,7 @@ class PiJsonRunner:
         resolved = shutil.which(command)
         if not resolved:
             raise RunnerFailure(f"Pi command was not found on PATH: {command!r}")
-        resolved_path = Path(resolved)
+        resolved_path = _NATIVE_PATH(resolved)
         if os.name == "nt" and resolved_path.suffix.lower() in {".cmd", ".bat"}:
             npm_root = resolved_path.parent
             node = npm_root / "node.exe"
