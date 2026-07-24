@@ -1,0 +1,317 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Nightwatch: a portable, synthetic case study in bounded overnight coding-agent orchestration and the failures that shaped Crab/Pi.">
+  <title>Nightwatch — Bounded overnight agent orchestration</title>
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to case study</a>
+  <header class="site-header">
+    <div class="shell nav-wrap">
+      <a class="brand" href="#top" aria-label="Nightwatch home">
+        <span class="brand-mark" aria-hidden="true"></span>
+        <span>NIGHTWATCH</span>
+      </a>
+      <nav aria-label="Case study navigation">
+        <a href="#system">System</a>
+        <a href="#evidence">Evidence</a>
+        <a href="#failures">Failures</a>
+        <a href="#boundaries">Boundaries</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="hero shell" id="top">
+      <div class="hero-copy">
+        <p class="eyebrow"><span class="live-dot" aria-hidden="true"></span> Portable closure · synthetic demonstration</p>
+        <h1>The overnight run wasn't the product. <em>The operating discipline was.</em></h1>
+        <p class="lede">Nightwatch turned a human brief into bounded agent work, recoverable attempts, explicit handoffs, fresh-context review, visual iterations, and a morning evidence package.</p>
+        <div class="claim-row" aria-label="Scope boundaries">
+          <span>Local controller</span>
+          <span>Offline by default</span>
+          <span>Human acceptance required</span>
+        </div>
+        <div class="hero-actions">
+          <a class="button primary" href="#system">Inspect the control loop</a>
+          <a class="button secondary" href="../evidence/synthetic-run/summary.md">Read the morning summary</a>
+        </div>
+      </div>
+      <aside class="run-panel" aria-label="Synthetic run result">
+        <div class="panel-top">
+          <span>RUN / synthetic-nightwatch-cycle</span>
+          <span class="status"><i aria-hidden="true"></i> completed</span>
+        </div>
+        <div class="metric-grid">
+          <div><strong>5/5</strong><span>tasks succeeded</span></div>
+          <div><strong>7</strong><span>bounded attempts</span></div>
+          <div><strong>2</strong><span>recoveries</span></div>
+          <div><strong>0</strong><span>external calls</span></div>
+        </div>
+        <ol class="trace" aria-label="Synthetic task trace">
+          <li><span class="trace-ok">01</span><b>Frame problem</b><small>attempt 1 · succeeded</small></li>
+          <li><span class="trace-retry">02</span><b>Build workflow</b><small>attempt 2 · recovered</small></li>
+          <li><span class="trace-retry">03</span><b>Continue handoff</b><small>attempt 2 · recovered</small></li>
+          <li><span class="trace-ok">04</span><b>Fresh-eyes review</b><small>fresh context · succeeded</small></li>
+          <li><span class="trace-ok">05</span><b>Creative loop</b><small>5 iterations · threshold reached</small></li>
+        </ol>
+        <div class="panel-foot"><span>runner: synthetic</span><span>review gate: open</span></div>
+      </aside>
+    </section>
+
+    <section class="thesis band" aria-labelledby="thesis-title">
+      <div class="shell thesis-grid">
+        <div>
+          <p class="section-kicker">The thesis</p>
+          <h2 id="thesis-title">A process can stay alive while the work loses the plot.</h2>
+        </div>
+        <div class="thesis-body">
+          <p>Queues and retries address operational failure. Agent work adds semantic failure: a successor over-trusts a handoff, a stale page looks convincing, or output lands in the wrong workspace.</p>
+          <p>My intervention joined ordinary controller state with intent-preservation boundaries.</p>
+        </div>
+      </div>
+      <div class="shell insight-chain" aria-label="Case-study reasoning chain">
+        <span>Operator insight</span><i aria-hidden="true">→</i>
+        <span>Two failure classes</span><i aria-hidden="true">→</i>
+        <span>Bounded control loop</span><i aria-hidden="true">→</i>
+        <span>Visible evidence</span><i aria-hidden="true">→</i>
+        <span>Human decision</span>
+      </div>
+    </section>
+
+    <section class="section shell" id="system" aria-labelledby="system-title">
+      <div class="section-head">
+        <div>
+          <p class="section-kicker">The system</p>
+          <h2 id="system-title">One controller owns the truth.</h2>
+        </div>
+        <p>The packaged implementation resolves the old split between watcher, direct orchestrator, and operator documentation. State changes happen in one deterministic controller; the runner only executes a bounded task.</p>
+      </div>
+
+      <div class="flow" aria-label="Brief to summary lifecycle">
+        <article><span>01</span><h3>Freeze intent</h3><p>Validate relative paths, dependencies, budgets, and stop conditions. Persist the accepted brief unchanged.</p></article>
+        <i aria-hidden="true">→</i>
+        <article><span>02</span><h3>Bound attempts</h3><p>Claim explicit queue state. Record worker heartbeat, timeout, failure, retry, and final status.</p></article>
+        <i aria-hidden="true">→</i>
+        <article><span>03</span><h3>Carry evidence</h3><p>Persist declared artifacts and a schema-valid handoff without replacing the original brief.</p></article>
+        <i aria-hidden="true">→</i>
+        <article><span>04</span><h3>Review fresh</h3><p>Give an independent reviewer the brief, artifacts, and handoff—but no predecessor conversation.</p></article>
+        <i aria-hidden="true">→</i>
+        <article><span>05</span><h3>Wake a human</h3><p>End in a morning summary and explicit acceptance gate, never automatic publication.</p></article>
+      </div>
+
+      <div class="architecture-grid">
+        <article class="architecture-card control-card">
+          <p class="mini-label">Deterministic control plane</p>
+          <h3>Brief · queue · manifest · heartbeat · handoff</h3>
+          <div class="state-line" aria-label="Queue states">
+            <span>planned</span><b>→</b><span>queued</span><b>→</b><span>running</span><b>→</b><span>succeeded</span>
+          </div>
+          <p>Atomic individual writes make state inspectable. Cross-file crash recovery remains an explicit limitation.</p>
+        </article>
+        <article class="architecture-card runner-card">
+          <p class="mini-label">Pluggable execution</p>
+          <h3>Runner interface</h3>
+          <div class="runner-choice"><span class="chosen">SyntheticRunner <small>default</small></span><span>PiJsonRunner <small>dual opt-in</small></span></div>
+          <p>Pi can become the worker transport. It does not become Nightwatch's scheduler, durable store, or sandbox.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section recovery-section" aria-labelledby="recovery-title">
+      <div class="shell">
+        <div class="section-head compact">
+          <div>
+            <p class="section-kicker">Recovery evidence</p>
+            <h2 id="recovery-title">Failures stay visible after recovery.</h2>
+          </div>
+          <p>The fixture deliberately includes two different failure paths. Success does not erase either attempt.</p>
+        </div>
+        <div class="recovery-rail">
+          <article>
+            <div class="recovery-number">01</div>
+            <div><p class="mini-label amber">Transient failure</p><h3>build-workflow · attempt 1</h3><p>running → failed → retry_wait → queued</p></div>
+            <span class="recovered">recovered on attempt 2</span>
+          </article>
+          <article>
+            <div class="recovery-number">02</div>
+            <div><p class="mini-label amber">Bounded timeout</p><h3>continue-workflow · attempt 1</h3><p>running → timed_out → retry_wait → queued</p></div>
+            <span class="recovered">recovered on attempt 2</span>
+          </article>
+        </div>
+        <div class="heartbeat-strip" aria-label="Heartbeat separation">
+          <div><span class="pulse teal" aria-hidden="true"></span><b>controller.json</b><small>supervisor progress</small></div>
+          <div><span class="pulse amber-dot" aria-hidden="true"></span><b>worker.json</b><small>attempt progress</small></div>
+          <p>Separate signals replace the old assumption that one watcher PID proved both.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section shell continuity" aria-labelledby="continuity-title">
+      <div class="section-head">
+        <div>
+          <p class="section-kicker">Semantic continuity</p>
+          <h2 id="continuity-title">A handoff is evidence, not authority.</h2>
+        </div>
+        <p>The successor must reconcile the predecessor's record with the immutable original objective. The fresh reviewer inherits evidence without inheriting conversation momentum.</p>
+      </div>
+      <div class="continuity-map">
+        <article class="source-card"><span>A</span><p class="mini-label">Immutable source</p><h3>Original brief</h3><p>Objective, allowed paths, task graph, limits</p></article>
+        <div class="merge" aria-hidden="true"><i></i><i></i><strong>+</strong></div>
+        <article class="source-card"><span>B</span><p class="mini-label">Structured evidence</p><h3>Continuation handoff</h3><p>Completed work, next step, artifacts, risks</p></article>
+        <div class="arrow-block" aria-hidden="true">→</div>
+        <article class="review-card"><p class="mini-label teal-text">Fresh-context boundary</p><h3>Independent review</h3><ul><li>brief included</li><li>artifacts included</li><li>handoff included</li><li class="excluded">predecessor chat excluded</li></ul></article>
+      </div>
+    </section>
+
+    <section class="section creative-section" aria-labelledby="creative-title">
+      <div class="shell creative-grid">
+        <div class="creative-copy">
+          <p class="section-kicker">Screenshot-based creative loop</p>
+          <h2 id="creative-title">Inspect pixels. Revise once. Preserve the trail.</h2>
+          <p>Five local SVG cards exercise the historical screenshot → critique → revision pattern. Scores are fixture inputs for loop control—not aesthetic judgment.</p>
+          <ol class="iteration-list">
+            <li><span>01</span><b>54</b><i style="--score:54%"></i><small>revise</small></li>
+            <li><span>02</span><b>66</b><i style="--score:66%"></i><small>revise</small></li>
+            <li><span>03</span><b>77</b><i style="--score:77%"></i><small>revise</small></li>
+            <li><span>04</span><b>86</b><i style="--score:86%"></i><small>revise</small></li>
+            <li class="final"><span>05</span><b>92</b><i style="--score:92%"></i><small>threshold</small></li>
+          </ol>
+        </div>
+        <figure class="creative-figure">
+          <img src="../evidence/synthetic-run/workspace/creative/iteration-05.svg" width="720" height="420" alt="Final synthetic creative iteration card showing fixture score 92 out of 100 and threshold reached">
+          <figcaption>Iteration 05 · generated locally · synthetic demonstration</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section class="section shell" id="evidence" aria-labelledby="evidence-title">
+      <div class="section-head">
+        <div>
+          <p class="section-kicker">Evidence ledger</p>
+          <h2 id="evidence-title">Reproduced facts and reported history stay separate.</h2>
+        </div>
+        <p>Private runs were not opened. Historical cards use only the aggregate outcomes included for publication and never stand in for reproducible evidence.</p>
+      </div>
+      <div class="evidence-columns">
+        <article class="evidence-ledger reproduced">
+          <p class="mini-label teal-text">Reproduced here</p>
+          <h3>Deterministic local run</h3>
+          <ul>
+            <li><b>5/5</b><span>fixture tasks succeeded</span></li>
+            <li><b>51</b><span>focused tests discovered</span></li>
+            <li><b>2</b><span>failure paths recovered</span></li>
+            <li><b>0</b><span>external service calls</span></li>
+          </ul>
+        </article>
+        <article class="evidence-ledger reported">
+          <p class="mini-label amber">Reported historical</p>
+          <h3>Aggregate outcomes only</h3>
+          <ul>
+            <li><b>7/7</b><span>planned tasks reported complete</span></li>
+            <li><b>multi</b><span>session continuation reported</span></li>
+            <li><b>5</b><span>creative passes reported</span></li>
+            <li><b>raw</b><span>private evidence excluded</span></li>
+          </ul>
+        </article>
+      </div>
+      <article class="pi-validation" aria-labelledby="pi-validation-title">
+        <div class="pi-validation-copy">
+          <p class="mini-label teal-text">Supervised external smoke · synthetic input</p>
+          <h3 id="pi-validation-title">Interrupt it. Recover it. Make a fresh reviewer read the work.</h3>
+          <p><code>openai-codex/gpt-5.6-luna</code> recovered from one deliberate process termination, persisted a handoff, and launched a no-session reviewer that made one recorded artifact-read call.</p>
+          <a class="text-link" href="../docs/pi-handoff-validation.md">Inspect the validation record <span aria-hidden="true">→</span></a>
+        </div>
+        <dl class="pi-metrics">
+          <div><dt>Result</dt><dd>2 / 2</dd><span>tasks succeeded</span></div>
+          <div><dt>Recovery</dt><dd>1 → 1</dd><span>failure → retry</span></div>
+          <div><dt>Continuity</dt><dd>1 + 1</dd><span>handoff + artifact read</span></div>
+          <div><dt>Retention</dt><dd>0</dd><span>sessions or raw prompts</span></div>
+        </dl>
+      </article>
+      <div class="historical-cards">
+        <figure><img loading="lazy" src="../evidence/historical/reported-7-of-7.svg" width="1000" height="560" alt="Sanitized historical card: seven of seven planned tasks reported complete, not independently reproduced"><figcaption>Reported 7/7 run</figcaption></figure>
+        <figure><img loading="lazy" src="../evidence/historical/reported-multi-session.svg" width="1000" height="560" alt="Sanitized historical card: one multi-session build reported, private sessions excluded"><figcaption>Reported multi-session build</figcaption></figure>
+        <figure><img loading="lazy" src="../evidence/historical/reported-five-iterations.svg" width="1000" height="560" alt="Sanitized historical card: five screenshot iterations reported, original imagery excluded"><figcaption>Reported five-pass loop</figcaption></figure>
+      </div>
+    </section>
+
+    <section class="section failure-section" id="failures" aria-labelledby="failures-title">
+      <div class="shell">
+        <div class="section-head">
+          <div>
+            <p class="section-kicker">What shaped Crab/Pi</p>
+            <h2 id="failures-title">Negative evidence became design policy.</h2>
+          </div>
+          <p>The case study keeps the failures because they explain why harness-native lifecycle, explicit paths, browser verification, and context boundaries mattered later.</p>
+        </div>
+        <div class="failure-grid">
+          <article><span>01</span><h3>Zombie watchers</h3><p>A living process did not prove supervisor or worker progress.</p><strong>Separate lifecycle signals.</strong></article>
+          <article><span>02</span><h3>Path bugs</h3><p>Machine roots and prefix checks could target the wrong workspace.</p><strong>Validate at the tool boundary.</strong></article>
+          <article><span>03</span><h3>Stale servers</h3><p>A convincing screenshot could come from the wrong running revision.</p><strong>Verify the observed runtime.</strong></article>
+          <article><span>04</span><h3>Handoff drift</h3><p>Continuation could preserve activity while losing the objective.</p><strong>Keep brief + fresh review.</strong></article>
+        </div>
+        <a class="text-link" href="../docs/failures-that-shaped-crab.md">Read the full failure ledger <span aria-hidden="true">→</span></a>
+      </div>
+    </section>
+
+    <section class="section shell comparison" aria-labelledby="comparison-title">
+      <div class="section-head compact">
+        <div>
+          <p class="section-kicker">Category honesty</p>
+          <h2 id="comparison-title">Different layer, not better infrastructure.</h2>
+        </div>
+      </div>
+      <div class="comparison-table" role="region" aria-label="Nightwatch, Temporal, and Hatchet comparison" tabindex="0">
+        <table>
+          <thead><tr><th>System</th><th>Primary promise</th><th>Durability layer</th><th>Agent-specific contribution</th></tr></thead>
+          <tbody>
+            <tr><th>Temporal</th><td>General durable workflows</td><td>Service + event history</td><td>Application-defined</td></tr>
+            <tr><th>Hatchet</th><td>Durable tasks and AI workflows</td><td>Postgres-backed platform</td><td>Workers, workflows, observability</td></tr>
+            <tr class="nightwatch-row"><th>Nightwatch</th><td>Bounded local overnight operation</td><td>Inspectable filesystem records</td><td>Brief retention, handoff, fresh review, visual loop</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="section boundaries" id="boundaries" aria-labelledby="boundaries-title">
+      <div class="shell boundary-grid">
+        <div>
+          <p class="section-kicker">Hard boundaries</p>
+          <h2 id="boundaries-title">What this does not prove.</h2>
+        </div>
+        <ul class="boundary-list">
+          <li><span>01</span><div><b>Not general autonomy</b><p>A fixture state machine does not demonstrate arbitrary software engineering.</p></div></li>
+          <li><span>02</span><div><b>Not distributed durability</b><p>No database, event replay, leases, or multi-host recovery.</p></div></li>
+          <li><span>03</span><div><b>Not a sandbox</b><p>Allowed paths validate Nightwatch writes; they cannot confine a host process.</p></div></li>
+          <li><span>04</span><div><b>Bounded external evidence</b><p>One controlled recovery/handoff succeeded; no uncontrolled outage, code implementation, customer, production, adoption, or revenue evidence.</p></div></li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="closing shell" aria-labelledby="closing-title">
+      <p class="section-kicker">Release status</p>
+      <h2 id="closing-title">Ready to publish. Release remains deliberate.</h2>
+      <p>Attribution, evidence wording, repository settings, final claims, and Apache-2.0 licensing are recorded. No site has been deployed.</p>
+      <pre><code>python -m nightwatch demo --output evidence/synthetic-run --clean</code></pre>
+      <div class="closing-links">
+        <a href="../README.md">README</a>
+        <a href="../docs/architecture.md">Architecture</a>
+        <a href="../docs/evidence-and-limitations.md">Evidence &amp; limitations</a>
+        <a href="../PUBLISH_CHECKLIST.md">Publish checklist</a>
+        <a href="../ACKNOWLEDGMENTS.md">Acknowledgments</a>
+        <a href="../LICENSE">Apache-2.0</a>
+        <a href="../PROVENANCE.md">Provenance</a>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="shell"><span>Nightwatch · Apache-2.0</span><span>Fault-injected Pi handoff validated · ready to publish · not deployed</span></div>
+  </footer>
+</body>
+</html>

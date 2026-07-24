@@ -1,0 +1,39 @@
+{
+  "schema_version": 1,
+  "evidence_class": "supervised external smoke test with synthetic input",
+  "runner": "pi-json",
+  "provider": "openai-codex",
+  "model": "gpt-5.6-luna",
+  "allowed_tools": ["read", "grep", "find", "ls"],
+  "external_services_enabled": true,
+  "isolated_workspace": "evidence/pi-smoke-run/workspace",
+  "host_sandbox": false,
+  "session_persistence": false,
+  "context_files_enabled": false,
+  "extensions_enabled": false,
+  "skills_enabled": false,
+  "prompt_templates_enabled": false,
+  "task_acknowledgement_required": true,
+  "generated_prompt_retained": false,
+  "raw_json_stream_retained": false,
+  "started_at": "2026-07-14T16:18:48.946113Z",
+  "completed_at": "2026-07-14T16:19:28.742985Z",
+  "result": {
+    "status": "completed",
+    "tasks": 1,
+    "attempts": 1,
+    "failed_attempts": 0,
+    "timed_out_attempts": 0,
+    "ordered_events": 8,
+    "controller_heartbeats": 77,
+    "worker_heartbeats": 75,
+    "artifact": "workspace/pi-smoke/assessment.md"
+  },
+  "limitations": [
+    "The input and product scenario are synthetic.",
+    "This was one read-only review task, not an implementation task.",
+    "The disposable workspace is a process boundary, not an operating-system sandbox.",
+    "No interruption, retry, multi-task handoff, or production workload was tested.",
+    "The record proves one successful invocation in this environment, not general reliability."
+  ]
+}

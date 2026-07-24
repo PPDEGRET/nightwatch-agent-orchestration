@@ -1,0 +1,162 @@
+{
+  "allowed_paths": [
+    "workspace/analysis",
+    "workspace/build",
+    "workspace/review",
+    "workspace/creative"
+  ],
+  "objective": "Turn a synthetic product brief into reviewable artifacts while making retries, a timeout, continuation handoffs, fresh-context review, and five visual iterations visible to a morning operator.",
+  "run_id": "synthetic-nightwatch-cycle",
+  "schema_version": 1,
+  "stop_conditions": {
+    "max_failures": 4,
+    "max_runtime_seconds": 1000,
+    "max_tasks": 5
+  },
+  "synthetic_demonstration": true,
+  "tasks": [
+    {
+      "depends_on": [],
+      "fresh_context": false,
+      "handoff_from": null,
+      "id": "frame-problem",
+      "kind": "analysis",
+      "model_route": "analysis",
+      "outputs": [
+        "workspace/analysis/problem.md"
+      ],
+      "produce_handoff": true,
+      "retry": {
+        "backoff_seconds": 0.0,
+        "max_attempts": 1,
+        "max_backoff_seconds": 30.0,
+        "multiplier": 2.0
+      },
+      "settings": {
+        "next_step": "Implement the bounded workflow described by the brief.",
+        "risks": [
+          "The demonstration is synthetic and cannot establish real user demand."
+        ]
+      },
+      "timeout_seconds": 30.0,
+      "title": "Frame the operator problem"
+    },
+    {
+      "depends_on": [
+        "frame-problem"
+      ],
+      "fresh_context": false,
+      "handoff_from": "frame-problem",
+      "id": "build-workflow",
+      "kind": "implementation",
+      "model_route": "implementation",
+      "outputs": [
+        "workspace/build/workflow.md"
+      ],
+      "produce_handoff": true,
+      "retry": {
+        "backoff_seconds": 0,
+        "max_attempts": 2,
+        "max_backoff_seconds": 0,
+        "multiplier": 2
+      },
+      "settings": {
+        "fail_attempts": [
+          1
+        ],
+        "next_step": "Continue from the persisted artifact after a bounded interruption."
+      },
+      "timeout_seconds": 30.0,
+      "title": "Build the bounded workflow"
+    },
+    {
+      "depends_on": [
+        "build-workflow"
+      ],
+      "fresh_context": false,
+      "handoff_from": "build-workflow",
+      "id": "continue-workflow",
+      "kind": "continuation",
+      "model_route": "implementation",
+      "outputs": [
+        "workspace/build/continuation.md"
+      ],
+      "produce_handoff": true,
+      "retry": {
+        "backoff_seconds": 0,
+        "max_attempts": 2,
+        "max_backoff_seconds": 0,
+        "multiplier": 2
+      },
+      "settings": {
+        "next_step": "Review the result from a fresh context against the original brief.",
+        "timeout_attempts": [
+          1
+        ]
+      },
+      "timeout_seconds": 30.0,
+      "title": "Continue from a persisted handoff"
+    },
+    {
+      "depends_on": [
+        "continue-workflow"
+      ],
+      "fresh_context": true,
+      "handoff_from": "continue-workflow",
+      "id": "fresh-eyes-review",
+      "kind": "review",
+      "model_route": "review",
+      "outputs": [
+        "workspace/review/fresh-eyes.md"
+      ],
+      "produce_handoff": false,
+      "retry": {
+        "backoff_seconds": 0.0,
+        "max_attempts": 1,
+        "max_backoff_seconds": 30.0,
+        "multiplier": 2.0
+      },
+      "settings": {},
+      "timeout_seconds": 30.0,
+      "title": "Run a fresh-eyes review"
+    },
+    {
+      "depends_on": [
+        "fresh-eyes-review"
+      ],
+      "fresh_context": false,
+      "handoff_from": null,
+      "id": "creative-loop",
+      "kind": "creative",
+      "model_route": "creative",
+      "outputs": [
+        "workspace/creative/iteration-01.svg",
+        "workspace/creative/iteration-02.svg",
+        "workspace/creative/iteration-03.svg",
+        "workspace/creative/iteration-04.svg",
+        "workspace/creative/iteration-05.svg",
+        "workspace/creative/report.md"
+      ],
+      "produce_handoff": false,
+      "retry": {
+        "backoff_seconds": 0.0,
+        "max_attempts": 1,
+        "max_backoff_seconds": 30.0,
+        "multiplier": 2.0
+      },
+      "settings": {
+        "quality_threshold": 90,
+        "scores": [
+          54,
+          66,
+          77,
+          86,
+          92
+        ]
+      },
+      "timeout_seconds": 30.0,
+      "title": "Run five screenshot-based creative iterations"
+    }
+  ],
+  "title": "Offline overnight orchestration demonstration"
+}

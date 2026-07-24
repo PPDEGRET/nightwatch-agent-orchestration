@@ -1,0 +1,111 @@
+{
+  "schema_version": 1,
+  "run_id": "synthetic-nightwatch-cycle",
+  "title": "Offline overnight orchestration demonstration",
+  "objective": "Turn a synthetic product brief into reviewable artifacts while making retries, a timeout, continuation handoffs, fresh-context review, and five visual iterations visible to a morning operator.",
+  "synthetic_demonstration": true,
+  "allowed_paths": [
+    "workspace/analysis",
+    "workspace/build",
+    "workspace/review",
+    "workspace/creative"
+  ],
+  "stop_conditions": {
+    "max_tasks": 5,
+    "max_failures": 4,
+    "max_runtime_seconds": 1000
+  },
+  "tasks": [
+    {
+      "id": "frame-problem",
+      "title": "Frame the operator problem",
+      "kind": "analysis",
+      "outputs": ["workspace/analysis/problem.md"],
+      "depends_on": [],
+      "timeout_seconds": 30,
+      "retry": {"max_attempts": 1},
+      "model_route": "analysis",
+      "produce_handoff": true,
+      "settings": {
+        "next_step": "Implement the bounded workflow described by the brief.",
+        "risks": ["The demonstration is synthetic and cannot establish real user demand."]
+      }
+    },
+    {
+      "id": "build-workflow",
+      "title": "Build the bounded workflow",
+      "kind": "implementation",
+      "outputs": ["workspace/build/workflow.md"],
+      "depends_on": ["frame-problem"],
+      "timeout_seconds": 30,
+      "retry": {
+        "max_attempts": 2,
+        "backoff_seconds": 0,
+        "multiplier": 2,
+        "max_backoff_seconds": 0
+      },
+      "model_route": "implementation",
+      "handoff_from": "frame-problem",
+      "produce_handoff": true,
+      "settings": {
+        "fail_attempts": [1],
+        "next_step": "Continue from the persisted artifact after a bounded interruption."
+      }
+    },
+    {
+      "id": "continue-workflow",
+      "title": "Continue from a persisted handoff",
+      "kind": "continuation",
+      "outputs": ["workspace/build/continuation.md"],
+      "depends_on": ["build-workflow"],
+      "timeout_seconds": 30,
+      "retry": {
+        "max_attempts": 2,
+        "backoff_seconds": 0,
+        "multiplier": 2,
+        "max_backoff_seconds": 0
+      },
+      "model_route": "implementation",
+      "handoff_from": "build-workflow",
+      "produce_handoff": true,
+      "settings": {
+        "timeout_attempts": [1],
+        "next_step": "Review the result from a fresh context against the original brief."
+      }
+    },
+    {
+      "id": "fresh-eyes-review",
+      "title": "Run a fresh-eyes review",
+      "kind": "review",
+      "outputs": ["workspace/review/fresh-eyes.md"],
+      "depends_on": ["continue-workflow"],
+      "timeout_seconds": 30,
+      "retry": {"max_attempts": 1},
+      "model_route": "review",
+      "handoff_from": "continue-workflow",
+      "fresh_context": true,
+      "settings": {}
+    },
+    {
+      "id": "creative-loop",
+      "title": "Run five screenshot-based creative iterations",
+      "kind": "creative",
+      "outputs": [
+        "workspace/creative/iteration-01.svg",
+        "workspace/creative/iteration-02.svg",
+        "workspace/creative/iteration-03.svg",
+        "workspace/creative/iteration-04.svg",
+        "workspace/creative/iteration-05.svg",
+        "workspace/creative/report.md"
+      ],
+      "depends_on": ["fresh-eyes-review"],
+      "timeout_seconds": 30,
+      "retry": {"max_attempts": 1},
+      "model_route": "creative",
+      "settings": {
+        "scores": [54, 66, 77, 86, 92],
+        "quality_threshold": 90
+      }
+    }
+  ]
+}

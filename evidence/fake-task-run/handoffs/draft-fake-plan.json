@@ -1,0 +1,13 @@
+{
+  "artifacts": [
+    "workspace/fake-task/plan/remediation.md"
+  ],
+  "completed": "Completed Draft a bounded remediation plan in the synthetic workflow.",
+  "created_at": "2026-07-14T17:02:29.118266Z",
+  "from_task": "draft-fake-plan",
+  "next_step": "Review the remediation plan independently against the original brief.",
+  "risks": [
+    "A synthetic plan is not evidence of product impact."
+  ],
+  "schema_version": 1
+}

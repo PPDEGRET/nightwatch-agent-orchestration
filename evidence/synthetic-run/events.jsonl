@@ -1,0 +1,44 @@
+{"at": "2026-06-01T22:00:00Z", "data": {"runner": "synthetic", "synthetic": true}, "sequence": 1, "type": "run_created"}
+{"at": "2026-06-01T22:00:01Z", "data": {"from": "created", "reason": null, "to": "running"}, "sequence": 2, "type": "run_status"}
+{"at": "2026-06-01T22:00:03Z", "data": {"detail": "dependencies satisfied", "from": "planned", "task_id": "frame-problem", "to": "queued"}, "sequence": 3, "type": "task_transition"}
+{"at": "2026-06-01T22:00:04Z", "data": {"detail": "worker claimed task", "from": "queued", "task_id": "frame-problem", "to": "running"}, "sequence": 4, "type": "task_transition"}
+{"at": "2026-06-01T22:00:05Z", "data": {"attempt": 1, "task_id": "frame-problem"}, "sequence": 5, "type": "task_attempt_started"}
+{"at": "2026-06-01T22:00:13Z", "data": {"from_task": "frame-problem", "path": "handoffs/frame-problem.json"}, "sequence": 6, "type": "handoff_written"}
+{"at": "2026-06-01T22:00:14Z", "data": {"detail": "Frame the operator problem completed", "from": "running", "task_id": "frame-problem", "to": "succeeded"}, "sequence": 7, "type": "task_transition"}
+{"at": "2026-06-01T22:00:16Z", "data": {"detail": "dependencies satisfied", "from": "planned", "task_id": "build-workflow", "to": "queued"}, "sequence": 8, "type": "task_transition"}
+{"at": "2026-06-01T22:00:17Z", "data": {"detail": "worker claimed task", "from": "queued", "task_id": "build-workflow", "to": "running"}, "sequence": 9, "type": "task_transition"}
+{"at": "2026-06-01T22:00:18Z", "data": {"attempt": 1, "task_id": "build-workflow"}, "sequence": 10, "type": "task_attempt_started"}
+{"at": "2026-06-01T22:00:26Z", "data": {"detail": "synthetic transient failure on attempt 1", "from": "running", "task_id": "build-workflow", "to": "failed"}, "sequence": 11, "type": "task_transition"}
+{"at": "2026-06-01T22:00:27Z", "data": {"detail": "retry after: synthetic transient failure on attempt 1", "from": "failed", "task_id": "build-workflow", "to": "retry_wait"}, "sequence": 12, "type": "task_transition"}
+{"at": "2026-06-01T22:00:29Z", "data": {"completed_attempts": 1, "delay_seconds": 0, "task_id": "build-workflow"}, "sequence": 13, "type": "retry_scheduled"}
+{"at": "2026-06-01T22:00:30Z", "data": {"detail": "retry delay complete (0s)", "from": "retry_wait", "task_id": "build-workflow", "to": "queued"}, "sequence": 14, "type": "task_transition"}
+{"at": "2026-06-01T22:00:31Z", "data": {"detail": "worker claimed task", "from": "queued", "task_id": "build-workflow", "to": "running"}, "sequence": 15, "type": "task_transition"}
+{"at": "2026-06-01T22:00:32Z", "data": {"attempt": 2, "task_id": "build-workflow"}, "sequence": 16, "type": "task_attempt_started"}
+{"at": "2026-06-01T22:00:40Z", "data": {"from_task": "build-workflow", "path": "handoffs/build-workflow.json"}, "sequence": 17, "type": "handoff_written"}
+{"at": "2026-06-01T22:00:41Z", "data": {"detail": "Build the bounded workflow completed", "from": "running", "task_id": "build-workflow", "to": "succeeded"}, "sequence": 18, "type": "task_transition"}
+{"at": "2026-06-01T22:00:43Z", "data": {"detail": "dependencies satisfied", "from": "planned", "task_id": "continue-workflow", "to": "queued"}, "sequence": 19, "type": "task_transition"}
+{"at": "2026-06-01T22:00:44Z", "data": {"detail": "worker claimed task", "from": "queued", "task_id": "continue-workflow", "to": "running"}, "sequence": 20, "type": "task_transition"}
+{"at": "2026-06-01T22:00:45Z", "data": {"attempt": 1, "task_id": "continue-workflow"}, "sequence": 21, "type": "task_attempt_started"}
+{"at": "2026-06-01T22:00:53Z", "data": {"detail": "synthetic timeout on attempt 1", "from": "running", "task_id": "continue-workflow", "to": "timed_out"}, "sequence": 22, "type": "task_transition"}
+{"at": "2026-06-01T22:00:54Z", "data": {"detail": "retry after: synthetic timeout on attempt 1", "from": "timed_out", "task_id": "continue-workflow", "to": "retry_wait"}, "sequence": 23, "type": "task_transition"}
+{"at": "2026-06-01T22:00:56Z", "data": {"completed_attempts": 1, "delay_seconds": 0, "task_id": "continue-workflow"}, "sequence": 24, "type": "retry_scheduled"}
+{"at": "2026-06-01T22:00:57Z", "data": {"detail": "retry delay complete (0s)", "from": "retry_wait", "task_id": "continue-workflow", "to": "queued"}, "sequence": 25, "type": "task_transition"}
+{"at": "2026-06-01T22:00:58Z", "data": {"detail": "worker claimed task", "from": "queued", "task_id": "continue-workflow", "to": "running"}, "sequence": 26, "type": "task_transition"}
+{"at": "2026-06-01T22:00:59Z", "data": {"attempt": 2, "task_id": "continue-workflow"}, "sequence": 27, "type": "task_attempt_started"}
+{"at": "2026-06-01T22:01:07Z", "data": {"from_task": "continue-workflow", "path": "handoffs/continue-workflow.json"}, "sequence": 28, "type": "handoff_written"}
+{"at": "2026-06-01T22:01:08Z", "data": {"detail": "Continue from a persisted handoff completed", "from": "running", "task_id": "continue-workflow", "to": "succeeded"}, "sequence": 29, "type": "task_transition"}
+{"at": "2026-06-01T22:01:10Z", "data": {"detail": "dependencies satisfied", "from": "planned", "task_id": "fresh-eyes-review", "to": "queued"}, "sequence": 30, "type": "task_transition"}
+{"at": "2026-06-01T22:01:11Z", "data": {"detail": "worker claimed task", "from": "queued", "task_id": "fresh-eyes-review", "to": "running"}, "sequence": 31, "type": "task_transition"}
+{"at": "2026-06-01T22:01:12Z", "data": {"attempt": 1, "task_id": "fresh-eyes-review"}, "sequence": 32, "type": "task_attempt_started"}
+{"at": "2026-06-01T22:01:19Z", "data": {"detail": "Run a fresh-eyes review completed", "from": "running", "task_id": "fresh-eyes-review", "to": "succeeded"}, "sequence": 33, "type": "task_transition"}
+{"at": "2026-06-01T22:01:21Z", "data": {"detail": "dependencies satisfied", "from": "planned", "task_id": "creative-loop", "to": "queued"}, "sequence": 34, "type": "task_transition"}
+{"at": "2026-06-01T22:01:22Z", "data": {"detail": "worker claimed task", "from": "queued", "task_id": "creative-loop", "to": "running"}, "sequence": 35, "type": "task_transition"}
+{"at": "2026-06-01T22:01:23Z", "data": {"attempt": 1, "task_id": "creative-loop"}, "sequence": 36, "type": "task_attempt_started"}
+{"at": "2026-06-01T22:01:30Z", "data": {"iteration": 1, "score": 54, "task_id": "creative-loop", "threshold": 90}, "sequence": 37, "type": "creative_iteration"}
+{"at": "2026-06-01T22:01:33Z", "data": {"iteration": 2, "score": 66, "task_id": "creative-loop", "threshold": 90}, "sequence": 38, "type": "creative_iteration"}
+{"at": "2026-06-01T22:01:36Z", "data": {"iteration": 3, "score": 77, "task_id": "creative-loop", "threshold": 90}, "sequence": 39, "type": "creative_iteration"}
+{"at": "2026-06-01T22:01:39Z", "data": {"iteration": 4, "score": 86, "task_id": "creative-loop", "threshold": 90}, "sequence": 40, "type": "creative_iteration"}
+{"at": "2026-06-01T22:01:42Z", "data": {"iteration": 5, "score": 92, "task_id": "creative-loop", "threshold": 90}, "sequence": 41, "type": "creative_iteration"}
+{"at": "2026-06-01T22:01:46Z", "data": {"detail": "Creative loop completed 5 iterations", "from": "running", "task_id": "creative-loop", "to": "succeeded"}, "sequence": 42, "type": "task_transition"}
+{"at": "2026-06-01T22:01:48Z", "data": {"from": "running", "reason": null, "to": "completed"}, "sequence": 43, "type": "run_status"}
+{"at": "2026-06-01T22:01:50Z", "data": {"path": "summary.md"}, "sequence": 44, "type": "summary_written"}

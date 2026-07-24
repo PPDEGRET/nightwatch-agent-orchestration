@@ -1,0 +1,42 @@
+{
+  "attempts": 1,
+  "depends_on": [],
+  "fresh_context": false,
+  "handoff_from": null,
+  "history": [
+    {
+      "at": "2026-07-14T17:02:28.147738Z",
+      "detail": "brief accepted",
+      "from": null,
+      "to": "planned"
+    },
+    {
+      "at": "2026-07-14T17:02:28.210043Z",
+      "detail": "dependencies satisfied",
+      "from": "planned",
+      "to": "queued"
+    },
+    {
+      "at": "2026-07-14T17:02:28.252506Z",
+      "detail": "worker claimed task",
+      "from": "queued",
+      "to": "running"
+    },
+    {
+      "at": "2026-07-14T17:02:28.425215Z",
+      "detail": "Inspect the fictional onboarding brief completed",
+      "from": "running",
+      "to": "succeeded"
+    }
+  ],
+  "id": "inspect-fake-brief",
+  "kind": "analysis",
+  "max_attempts": 1,
+  "model_route": "analysis",
+  "outputs": [
+    "workspace/fake-task/research/findings.md"
+  ],
+  "status": "succeeded",
+  "timeout_seconds": 10.0,
+  "title": "Inspect the fictional onboarding brief"
+}

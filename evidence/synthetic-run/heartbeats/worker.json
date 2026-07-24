@@ -1,0 +1,10 @@
+{
+  "attempt": 1,
+  "component": "worker",
+  "observed_at": "2026-06-01T22:01:43Z",
+  "run_id": "synthetic-nightwatch-cycle",
+  "schema_version": 1,
+  "sequence": 26,
+  "status": "completed",
+  "task_id": "creative-loop"
+}

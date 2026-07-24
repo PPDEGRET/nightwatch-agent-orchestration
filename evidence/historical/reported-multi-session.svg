@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="560" viewBox="0 0 1000 560" role="img" aria-labelledby="title desc">
+  <title id="title">Reported historical multi-session build</title>
+  <desc id="desc">Sanitized reconstruction card based on my report of using Nightwatch continuation across multiple sessions for one build. Raw sessions and project data are excluded.</desc>
+  <rect width="1000" height="560" rx="32" fill="#0b1016"/>
+  <rect x="48" y="48" width="904" height="464" rx="24" fill="#121a23" stroke="#273748"/>
+  <text x="92" y="115" fill="#f4b860" font-family="Arial, sans-serif" font-size="17" letter-spacing="2">REPORTED HISTORICAL OUTCOME</text>
+  <text x="92" y="215" fill="#f5f7fa" font-family="Arial, sans-serif" font-size="66" font-weight="700">MULTI-SESSION</text>
+  <text x="92" y="285" fill="#b7c4d0" font-family="Arial, sans-serif" font-size="28">one build continued through persisted handoffs</text>
+  <line x1="92" y1="350" x2="908" y2="350" stroke="#273748"/>
+  <text x="92" y="405" fill="#8fa3b8" font-family="Arial, sans-serif" font-size="20">First-person report · sessions and prompts excluded</text>
+  <text x="92" y="445" fill="#8fa3b8" font-family="Arial, sans-serif" font-size="20">Portfolio retains the operating lesson, not private content</text>
+</svg>

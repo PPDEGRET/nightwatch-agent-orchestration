@@ -1,0 +1,47 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.invalid/nightwatch/manifest.schema.json",
+  "title": "Nightwatch run manifest",
+  "type": "object",
+  "required": ["schema_version", "run_id", "status", "runner", "synthetic_demonstration", "external_services_enabled", "counters", "tasks"],
+  "properties": {
+    "schema_version": {"const": 1},
+    "run_id": {"type": "string"},
+    "status": {"enum": ["created", "running", "completed", "completed_with_failures", "stopped"]},
+    "runner": {"type": "string"},
+    "synthetic_demonstration": {"type": "boolean"},
+    "external_services_enabled": {"type": "boolean"},
+    "created_at": {"type": "string"},
+    "updated_at": {"type": "string"},
+    "completed_at": {"type": ["string", "null"]},
+    "stop_reason": {"type": ["string", "null"]},
+    "summary_path": {"type": ["string", "null"]},
+    "counters": {"type": "object"},
+    "tasks": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["id", "status", "attempts", "outputs", "history"],
+        "properties": {
+          "execution": {
+            "type": "object",
+            "required": ["provider", "model", "task_acknowledged", "stream_events", "tool_calls", "read_paths"],
+            "properties": {
+              "provider": {"type": "string", "minLength": 1},
+              "model": {"type": "string", "minLength": 1},
+              "task_acknowledged": {"const": true},
+              "stream_events": {"type": "integer", "minimum": 0},
+              "tool_calls": {"type": "integer", "minimum": 0},
+              "read_paths": {
+                "type": "array",
+                "items": {"type": "string", "minLength": 1},
+                "uniqueItems": true
+              }
+            },
+            "additionalProperties": false
+          }
+        }
+      }
+    }
+  }
+}

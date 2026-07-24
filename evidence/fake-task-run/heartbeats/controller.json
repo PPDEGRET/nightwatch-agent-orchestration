@@ -1,0 +1,10 @@
+{
+  "attempt": null,
+  "component": "controller",
+  "observed_at": "2026-07-14T17:02:29.555398Z",
+  "run_id": "fake-moonleaf-readiness",
+  "schema_version": 1,
+  "sequence": 17,
+  "status": "completed",
+  "task_id": null
+}

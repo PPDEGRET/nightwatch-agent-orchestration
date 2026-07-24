@@ -1,0 +1,10 @@
+{
+  "attempt": 1,
+  "component": "worker",
+  "observed_at": "2026-07-14T16:19:28.400852Z",
+  "run_id": "pi-moonleaf-review",
+  "schema_version": 1,
+  "sequence": 75,
+  "status": "pi-process-running",
+  "task_id": "review-moonleaf-plan"
+}

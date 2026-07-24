@@ -1,0 +1,180 @@
+{
+  "completed_at": "2026-07-14T17:02:29.536398Z",
+  "counters": {
+    "attempts": 4,
+    "creative_iterations": 0,
+    "failed_attempts": 1,
+    "handoffs": 2,
+    "retries": 1,
+    "tasks_started": 3,
+    "timed_out_attempts": 0
+  },
+  "created_at": "2026-07-14T17:02:28.147738Z",
+  "external_services_enabled": false,
+  "objective": "Prepare a reviewable launch-readiness note for Moonleaf, a fictional nocturnal plant-care app: identify one onboarding risk, propose a bounded remediation plan, and independently review that plan against this original brief.",
+  "run_id": "fake-moonleaf-readiness",
+  "runner": "synthetic",
+  "schema_version": 1,
+  "status": "completed",
+  "stop_reason": null,
+  "summary_path": "summary.md",
+  "synthetic_demonstration": true,
+  "tasks": [
+    {
+      "attempts": 1,
+      "depends_on": [],
+      "fresh_context": false,
+      "handoff_from": null,
+      "history": [
+        {
+          "at": "2026-07-14T17:02:28.147738Z",
+          "detail": "brief accepted",
+          "from": null,
+          "to": "planned"
+        },
+        {
+          "at": "2026-07-14T17:02:28.210043Z",
+          "detail": "dependencies satisfied",
+          "from": "planned",
+          "to": "queued"
+        },
+        {
+          "at": "2026-07-14T17:02:28.252506Z",
+          "detail": "worker claimed task",
+          "from": "queued",
+          "to": "running"
+        },
+        {
+          "at": "2026-07-14T17:02:28.425215Z",
+          "detail": "Inspect the fictional onboarding brief completed",
+          "from": "running",
+          "to": "succeeded"
+        }
+      ],
+      "id": "inspect-fake-brief",
+      "kind": "analysis",
+      "max_attempts": 1,
+      "model_route": "analysis",
+      "outputs": [
+        "workspace/fake-task/research/findings.md"
+      ],
+      "status": "succeeded",
+      "timeout_seconds": 10.0,
+      "title": "Inspect the fictional onboarding brief"
+    },
+    {
+      "attempts": 2,
+      "depends_on": [
+        "inspect-fake-brief"
+      ],
+      "fresh_context": false,
+      "handoff_from": "inspect-fake-brief",
+      "history": [
+        {
+          "at": "2026-07-14T17:02:28.147738Z",
+          "detail": "brief accepted",
+          "from": null,
+          "to": "planned"
+        },
+        {
+          "at": "2026-07-14T17:02:28.493798Z",
+          "detail": "dependencies satisfied",
+          "from": "planned",
+          "to": "queued"
+        },
+        {
+          "at": "2026-07-14T17:02:28.529780Z",
+          "detail": "worker claimed task",
+          "from": "queued",
+          "to": "running"
+        },
+        {
+          "at": "2026-07-14T17:02:28.704986Z",
+          "detail": "synthetic transient failure on attempt 1",
+          "from": "running",
+          "to": "failed"
+        },
+        {
+          "at": "2026-07-14T17:02:28.757838Z",
+          "detail": "retry after: synthetic transient failure on attempt 1",
+          "from": "failed",
+          "to": "retry_wait"
+        },
+        {
+          "at": "2026-07-14T17:02:28.930133Z",
+          "detail": "retry delay complete (0.1s)",
+          "from": "retry_wait",
+          "to": "queued"
+        },
+        {
+          "at": "2026-07-14T17:02:28.965562Z",
+          "detail": "worker claimed task",
+          "from": "queued",
+          "to": "running"
+        },
+        {
+          "at": "2026-07-14T17:02:29.167187Z",
+          "detail": "Draft a bounded remediation plan completed",
+          "from": "running",
+          "to": "succeeded"
+        }
+      ],
+      "id": "draft-fake-plan",
+      "kind": "implementation",
+      "max_attempts": 2,
+      "model_route": "implementation",
+      "outputs": [
+        "workspace/fake-task/plan/remediation.md"
+      ],
+      "status": "succeeded",
+      "timeout_seconds": 10.0,
+      "title": "Draft a bounded remediation plan"
+    },
+    {
+      "attempts": 1,
+      "depends_on": [
+        "draft-fake-plan"
+      ],
+      "fresh_context": true,
+      "handoff_from": "draft-fake-plan",
+      "history": [
+        {
+          "at": "2026-07-14T17:02:28.147738Z",
+          "detail": "brief accepted",
+          "from": null,
+          "to": "planned"
+        },
+        {
+          "at": "2026-07-14T17:02:29.245613Z",
+          "detail": "dependencies satisfied",
+          "from": "planned",
+          "to": "queued"
+        },
+        {
+          "at": "2026-07-14T17:02:29.282278Z",
+          "detail": "worker claimed task",
+          "from": "queued",
+          "to": "running"
+        },
+        {
+          "at": "2026-07-14T17:02:29.466316Z",
+          "detail": "Review the fictional plan with fresh eyes completed",
+          "from": "running",
+          "to": "succeeded"
+        }
+      ],
+      "id": "review-fake-plan",
+      "kind": "review",
+      "max_attempts": 1,
+      "model_route": "review",
+      "outputs": [
+        "workspace/fake-task/review/fresh-eyes.md"
+      ],
+      "status": "succeeded",
+      "timeout_seconds": 10.0,
+      "title": "Review the fictional plan with fresh eyes"
+    }
+  ],
+  "title": "Fictional Moonleaf launch-readiness review",
+  "updated_at": "2026-07-14T17:02:29.598495Z"
+}

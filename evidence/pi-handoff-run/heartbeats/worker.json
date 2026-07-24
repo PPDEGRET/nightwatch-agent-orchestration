@@ -1,0 +1,10 @@
+{
+  "attempt": 1,
+  "component": "worker",
+  "observed_at": "2026-07-14T17:33:18.767902Z",
+  "run_id": "pi-handoff-recovery",
+  "schema_version": 1,
+  "sequence": 71,
+  "status": "completed",
+  "task_id": "fresh-review"
+}

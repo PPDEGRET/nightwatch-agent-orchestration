@@ -1,0 +1,49 @@
+{
+  "attempts": 1,
+  "depends_on": [
+    "fresh-eyes-review"
+  ],
+  "fresh_context": false,
+  "handoff_from": null,
+  "history": [
+    {
+      "at": "2026-06-01T22:00:00Z",
+      "detail": "brief accepted",
+      "from": null,
+      "to": "planned"
+    },
+    {
+      "at": "2026-06-01T22:01:21Z",
+      "detail": "dependencies satisfied",
+      "from": "planned",
+      "to": "queued"
+    },
+    {
+      "at": "2026-06-01T22:01:22Z",
+      "detail": "worker claimed task",
+      "from": "queued",
+      "to": "running"
+    },
+    {
+      "at": "2026-06-01T22:01:46Z",
+      "detail": "Creative loop completed 5 iterations",
+      "from": "running",
+      "to": "succeeded"
+    }
+  ],
+  "id": "creative-loop",
+  "kind": "creative",
+  "max_attempts": 1,
+  "model_route": "creative",
+  "outputs": [
+    "workspace/creative/iteration-01.svg",
+    "workspace/creative/iteration-02.svg",
+    "workspace/creative/iteration-03.svg",
+    "workspace/creative/iteration-04.svg",
+    "workspace/creative/iteration-05.svg",
+    "workspace/creative/report.md"
+  ],
+  "status": "succeeded",
+  "timeout_seconds": 30.0,
+  "title": "Run five screenshot-based creative iterations"
+}

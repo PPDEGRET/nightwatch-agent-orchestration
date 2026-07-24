@@ -1,0 +1,13 @@
+{
+  "artifacts": [
+    "workspace/build/workflow.md"
+  ],
+  "completed": "Completed Build the bounded workflow in the synthetic workflow.",
+  "created_at": "2026-06-01T22:00:37Z",
+  "from_task": "build-workflow",
+  "next_step": "Continue from the persisted artifact after a bounded interruption.",
+  "risks": [
+    "Synthetic evidence does not establish production reliability."
+  ],
+  "schema_version": 1
+}

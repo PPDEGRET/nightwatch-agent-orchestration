@@ -1,0 +1,103 @@
+{
+  "allowed_paths": [
+    "workspace/fake-task/research",
+    "workspace/fake-task/plan",
+    "workspace/fake-task/review"
+  ],
+  "objective": "Prepare a reviewable launch-readiness note for Moonleaf, a fictional nocturnal plant-care app: identify one onboarding risk, propose a bounded remediation plan, and independently review that plan against this original brief.",
+  "run_id": "fake-moonleaf-readiness",
+  "schema_version": 1,
+  "stop_conditions": {
+    "max_failures": 3,
+    "max_runtime_seconds": 60,
+    "max_tasks": 3
+  },
+  "synthetic_demonstration": true,
+  "tasks": [
+    {
+      "depends_on": [],
+      "fresh_context": false,
+      "handoff_from": null,
+      "id": "inspect-fake-brief",
+      "kind": "analysis",
+      "model_route": "analysis",
+      "outputs": [
+        "workspace/fake-task/research/findings.md"
+      ],
+      "produce_handoff": true,
+      "retry": {
+        "backoff_seconds": 0.0,
+        "max_attempts": 1,
+        "max_backoff_seconds": 30.0,
+        "multiplier": 2.0
+      },
+      "settings": {
+        "fixture_content": "### Identified onboarding risk\n\nMoonleaf asks for notification permission before explaining the value of nightly care reminders. In this fictional scenario, an early system prompt can cause users to reject notifications before they understand the benefit.\n\n### Evidence status\n\nThis risk is fabricated for the smoke test; it is not user research or production telemetry.",
+        "next_step": "Draft one bounded remediation plan for the identified onboarding risk.",
+        "risks": [
+          "Moonleaf and its onboarding problem are synthetic fixtures."
+        ]
+      },
+      "timeout_seconds": 10.0,
+      "title": "Inspect the fictional onboarding brief"
+    },
+    {
+      "depends_on": [
+        "inspect-fake-brief"
+      ],
+      "fresh_context": false,
+      "handoff_from": "inspect-fake-brief",
+      "id": "draft-fake-plan",
+      "kind": "implementation",
+      "model_route": "implementation",
+      "outputs": [
+        "workspace/fake-task/plan/remediation.md"
+      ],
+      "produce_handoff": true,
+      "retry": {
+        "backoff_seconds": 0.1,
+        "max_attempts": 2,
+        "max_backoff_seconds": 0.1,
+        "multiplier": 2
+      },
+      "settings": {
+        "fail_attempts": [
+          1
+        ],
+        "fixture_content": "### Bounded intervention\n\n1. Defer the notification prompt until the user saves a first plant and selects a preferred care window.\n2. Show a short pre-permission explanation using the selected plant and window.\n3. Keep a visible skip path and allow reminders to be enabled later in settings.\n\n### Acceptance criteria\n\n- No notification prompt appears before a plant is saved.\n- Skipping never blocks onboarding.\n- The selected care window is retained without requiring notification access.\n- A human reviews the copy and permission timing before release.",
+        "next_step": "Review the remediation plan independently against the original brief.",
+        "risks": [
+          "A synthetic plan is not evidence of product impact."
+        ]
+      },
+      "timeout_seconds": 10.0,
+      "title": "Draft a bounded remediation plan"
+    },
+    {
+      "depends_on": [
+        "draft-fake-plan"
+      ],
+      "fresh_context": true,
+      "handoff_from": "draft-fake-plan",
+      "id": "review-fake-plan",
+      "kind": "review",
+      "model_route": "review",
+      "outputs": [
+        "workspace/fake-task/review/fresh-eyes.md"
+      ],
+      "produce_handoff": false,
+      "retry": {
+        "backoff_seconds": 0.0,
+        "max_attempts": 1,
+        "max_backoff_seconds": 30.0,
+        "multiplier": 2.0
+      },
+      "settings": {
+        "fixture_content": "### Review verdict\n\nThe remediation stays within the brief: it addresses the fictional early-permission risk, preserves a skip path, and defines observable acceptance criteria. The plan should remain a proposal until a human validates the copy and tests the timing with users.\n\n### Remaining limitation\n\nNo behavioral evidence supports the proposed intervention; the next gate is a small supervised usability test, not automatic release."
+      },
+      "timeout_seconds": 10.0,
+      "title": "Review the fictional plan with fresh eyes"
+    }
+  ],
+  "title": "Fictional Moonleaf launch-readiness review"
+}

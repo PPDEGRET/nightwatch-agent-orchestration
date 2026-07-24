@@ -1,0 +1,44 @@
+{
+  "attempts": 1,
+  "depends_on": [
+    "draft-fake-plan"
+  ],
+  "fresh_context": true,
+  "handoff_from": "draft-fake-plan",
+  "history": [
+    {
+      "at": "2026-07-14T17:02:28.147738Z",
+      "detail": "brief accepted",
+      "from": null,
+      "to": "planned"
+    },
+    {
+      "at": "2026-07-14T17:02:29.245613Z",
+      "detail": "dependencies satisfied",
+      "from": "planned",
+      "to": "queued"
+    },
+    {
+      "at": "2026-07-14T17:02:29.282278Z",
+      "detail": "worker claimed task",
+      "from": "queued",
+      "to": "running"
+    },
+    {
+      "at": "2026-07-14T17:02:29.466316Z",
+      "detail": "Review the fictional plan with fresh eyes completed",
+      "from": "running",
+      "to": "succeeded"
+    }
+  ],
+  "id": "review-fake-plan",
+  "kind": "review",
+  "max_attempts": 1,
+  "model_route": "review",
+  "outputs": [
+    "workspace/fake-task/review/fresh-eyes.md"
+  ],
+  "status": "succeeded",
+  "timeout_seconds": 10.0,
+  "title": "Review the fictional plan with fresh eyes"
+}

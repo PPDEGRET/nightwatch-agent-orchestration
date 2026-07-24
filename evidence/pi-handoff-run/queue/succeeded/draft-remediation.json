@@ -1,0 +1,74 @@
+{
+  "attempts": 2,
+  "depends_on": [],
+  "execution": {
+    "model": "gpt-5.6-luna",
+    "provider": "openai-codex",
+    "read_paths": [],
+    "stream_events": 144,
+    "task_acknowledged": true,
+    "tool_calls": 0
+  },
+  "fresh_context": false,
+  "handoff_from": null,
+  "history": [
+    {
+      "at": "2026-07-14T17:32:45.463555Z",
+      "detail": "brief accepted",
+      "from": null,
+      "to": "planned"
+    },
+    {
+      "at": "2026-07-14T17:32:45.528217Z",
+      "detail": "dependencies satisfied",
+      "from": "planned",
+      "to": "queued"
+    },
+    {
+      "at": "2026-07-14T17:32:45.566475Z",
+      "detail": "worker claimed task",
+      "from": "queued",
+      "to": "running"
+    },
+    {
+      "at": "2026-07-14T17:32:47.037808Z",
+      "detail": "fault injection deliberately interrupted Pi attempt 1 after 1s",
+      "from": "running",
+      "to": "failed"
+    },
+    {
+      "at": "2026-07-14T17:32:47.073989Z",
+      "detail": "retry after: fault injection deliberately interrupted Pi attempt 1 after 1s",
+      "from": "failed",
+      "to": "retry_wait"
+    },
+    {
+      "at": "2026-07-14T17:32:47.335758Z",
+      "detail": "retry delay complete (0.2s)",
+      "from": "retry_wait",
+      "to": "queued"
+    },
+    {
+      "at": "2026-07-14T17:32:47.381042Z",
+      "detail": "worker claimed task",
+      "from": "queued",
+      "to": "running"
+    },
+    {
+      "at": "2026-07-14T17:33:05.361816Z",
+      "detail": "Pi JSON task completed",
+      "from": "running",
+      "to": "succeeded"
+    }
+  ],
+  "id": "draft-remediation",
+  "kind": "implementation",
+  "max_attempts": 2,
+  "model_route": "implementation",
+  "outputs": [
+    "workspace/pi-handoff/remediation.md"
+  ],
+  "status": "succeeded",
+  "timeout_seconds": 120.0,
+  "title": "Draft the fictional Moonleaf remediation plan"
+}

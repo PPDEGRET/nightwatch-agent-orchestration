@@ -1,0 +1,14 @@
+{
+  "artifacts": [
+    "workspace/pi-handoff/remediation.md"
+  ],
+  "completed": "Pi produced an acknowledged artifact for Draft the fictional Moonleaf remediation plan.",
+  "created_at": "2026-07-14T17:33:05.255856Z",
+  "from_task": "draft-remediation",
+  "next_step": "Read the persisted remediation artifact and review it independently against the immutable brief.",
+  "risks": [
+    "The Moonleaf scenario is synthetic.",
+    "The plan has not been tested with users or in production."
+  ],
+  "schema_version": 1
+}

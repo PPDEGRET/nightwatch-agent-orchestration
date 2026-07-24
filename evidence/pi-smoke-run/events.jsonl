@@ -1,0 +1,8 @@
+{"at": "2026-07-14T16:18:48.946113Z", "data": {"runner": "pi-json", "synthetic": true}, "sequence": 1, "type": "run_created"}
+{"at": "2026-07-14T16:18:48.971530Z", "data": {"from": "created", "reason": null, "to": "running"}, "sequence": 2, "type": "run_status"}
+{"at": "2026-07-14T16:18:49.012946Z", "data": {"detail": "dependencies satisfied", "from": "planned", "task_id": "review-moonleaf-plan", "to": "queued"}, "sequence": 3, "type": "task_transition"}
+{"at": "2026-07-14T16:18:49.049495Z", "data": {"detail": "worker claimed task", "from": "queued", "task_id": "review-moonleaf-plan", "to": "running"}, "sequence": 4, "type": "task_transition"}
+{"at": "2026-07-14T16:18:49.067411Z", "data": {"attempt": 1, "task_id": "review-moonleaf-plan"}, "sequence": 5, "type": "task_attempt_started"}
+{"at": "2026-07-14T16:19:28.689544Z", "data": {"detail": "Pi JSON task completed", "from": "running", "task_id": "review-moonleaf-plan", "to": "succeeded"}, "sequence": 6, "type": "task_transition"}
+{"at": "2026-07-14T16:19:28.742985Z", "data": {"from": "running", "reason": null, "to": "completed"}, "sequence": 7, "type": "run_status"}
+{"at": "2026-07-14T16:19:28.791558Z", "data": {"path": "summary.md"}, "sequence": 8, "type": "summary_written"}

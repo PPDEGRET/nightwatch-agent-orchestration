@@ -1,0 +1,72 @@
+{
+  "schema_version": 1,
+  "run_id": "pi-handoff-recovery",
+  "title": "Interrupted Pi handoff and fresh-context review",
+  "objective": "Exercise a synthetic two-task Pi workflow for Moonleaf. First, draft a bounded remediation plan for deferring notification permission until after a user saves a plant and selects a care window; the artifact must contain sections titled Proposed intervention, Acceptance criteria, and Human validation gate. Then start a fresh no-session reviewer, use the read tool to inspect the persisted predecessor artifact at pi-handoff/remediation.md, and produce sections titled Verdict, Contradictions, and Next human gate. All product details are fictional. Do not claim user research, production evidence, adoption, or measured impact.",
+  "synthetic_demonstration": true,
+  "allowed_paths": ["workspace/pi-handoff"],
+  "stop_conditions": {
+    "max_tasks": 2,
+    "max_failures": 3,
+    "max_runtime_seconds": 300
+  },
+  "tasks": [
+    {
+      "id": "draft-remediation",
+      "title": "Draft the fictional Moonleaf remediation plan",
+      "kind": "implementation",
+      "outputs": ["workspace/pi-handoff/remediation.md"],
+      "depends_on": [],
+      "timeout_seconds": 120,
+      "retry": {
+        "max_attempts": 2,
+        "backoff_seconds": 0.2,
+        "multiplier": 2,
+        "max_backoff_seconds": 0.2
+      },
+      "model_route": "implementation",
+      "produce_handoff": true,
+      "settings": {
+        "fault_injection": {
+          "interrupt_attempts": [1],
+          "after_seconds": 1.0
+        },
+        "required_output_phrases": [
+          "Proposed intervention",
+          "Acceptance criteria",
+          "Human validation gate"
+        ],
+        "next_step": "Read the persisted remediation artifact and review it independently against the immutable brief.",
+        "risks": [
+          "The Moonleaf scenario is synthetic.",
+          "The plan has not been tested with users or in production."
+        ]
+      }
+    },
+    {
+      "id": "fresh-review",
+      "title": "Freshly review the persisted Moonleaf plan",
+      "kind": "review",
+      "outputs": ["workspace/pi-handoff/fresh-review.md"],
+      "depends_on": ["draft-remediation"],
+      "timeout_seconds": 120,
+      "retry": {
+        "max_attempts": 2,
+        "backoff_seconds": 0.2,
+        "multiplier": 2,
+        "max_backoff_seconds": 0.2
+      },
+      "model_route": "review",
+      "handoff_from": "draft-remediation",
+      "fresh_context": true,
+      "settings": {
+        "required_output_phrases": [
+          "pi-handoff/remediation.md",
+          "Verdict",
+          "Contradictions",
+          "Next human gate"
+        ]
+      }
+    }
+  ]
+}

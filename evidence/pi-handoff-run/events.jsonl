@@ -1,0 +1,27 @@
+{"at": "2026-07-14T17:32:45.463555Z", "data": {"runner": "pi-json", "synthetic": true}, "sequence": 1, "type": "run_created"}
+{"at": "2026-07-14T17:32:45.495991Z", "data": {"from": "created", "reason": null, "to": "running"}, "sequence": 2, "type": "run_status"}
+{"at": "2026-07-14T17:32:45.528217Z", "data": {"detail": "dependencies satisfied", "from": "planned", "task_id": "draft-remediation", "to": "queued"}, "sequence": 3, "type": "task_transition"}
+{"at": "2026-07-14T17:32:45.566475Z", "data": {"detail": "worker claimed task", "from": "queued", "task_id": "draft-remediation", "to": "running"}, "sequence": 4, "type": "task_transition"}
+{"at": "2026-07-14T17:32:45.591957Z", "data": {"attempt": 1, "task_id": "draft-remediation"}, "sequence": 5, "type": "task_attempt_started"}
+{"at": "2026-07-14T17:32:45.694867Z", "data": {"attempt": 1, "fault_interrupt_after_seconds": 1.0, "model": "gpt-5.6-luna", "provider": "openai-codex", "task_id": "draft-remediation"}, "sequence": 6, "type": "pi_process_started"}
+{"at": "2026-07-14T17:32:46.789010Z", "data": {"after_seconds": 1.0, "attempt": 1, "task_id": "draft-remediation"}, "sequence": 7, "type": "fault_injection_interrupt"}
+{"at": "2026-07-14T17:32:47.037808Z", "data": {"detail": "fault injection deliberately interrupted Pi attempt 1 after 1s", "from": "running", "task_id": "draft-remediation", "to": "failed"}, "sequence": 8, "type": "task_transition"}
+{"at": "2026-07-14T17:32:47.073989Z", "data": {"detail": "retry after: fault injection deliberately interrupted Pi attempt 1 after 1s", "from": "failed", "task_id": "draft-remediation", "to": "retry_wait"}, "sequence": 9, "type": "task_transition"}
+{"at": "2026-07-14T17:32:47.111538Z", "data": {"completed_attempts": 1, "delay_seconds": 0.2, "task_id": "draft-remediation"}, "sequence": 10, "type": "retry_scheduled"}
+{"at": "2026-07-14T17:32:47.335758Z", "data": {"detail": "retry delay complete (0.2s)", "from": "retry_wait", "task_id": "draft-remediation", "to": "queued"}, "sequence": 11, "type": "task_transition"}
+{"at": "2026-07-14T17:32:47.381042Z", "data": {"detail": "worker claimed task", "from": "queued", "task_id": "draft-remediation", "to": "running"}, "sequence": 12, "type": "task_transition"}
+{"at": "2026-07-14T17:32:47.407347Z", "data": {"attempt": 2, "task_id": "draft-remediation"}, "sequence": 13, "type": "task_attempt_started"}
+{"at": "2026-07-14T17:32:47.505398Z", "data": {"attempt": 2, "fault_interrupt_after_seconds": null, "model": "gpt-5.6-luna", "provider": "openai-codex", "task_id": "draft-remediation"}, "sequence": 14, "type": "pi_process_started"}
+{"at": "2026-07-14T17:33:05.241740Z", "data": {"attempt": 2, "model": "gpt-5.6-luna", "provider": "openai-codex", "read_paths": [], "stream_events": 144, "task_id": "draft-remediation", "tool_calls": 0}, "sequence": 15, "type": "pi_result_validated"}
+{"at": "2026-07-14T17:33:05.279770Z", "data": {"model": "gpt-5.6-luna", "provider": "openai-codex", "read_paths": [], "stream_events": 144, "task_acknowledged": true, "task_id": "draft-remediation", "tool_calls": 0}, "sequence": 16, "type": "task_execution_recorded"}
+{"at": "2026-07-14T17:33:05.309225Z", "data": {"from_task": "draft-remediation", "path": "handoffs/draft-remediation.json"}, "sequence": 17, "type": "handoff_written"}
+{"at": "2026-07-14T17:33:05.361816Z", "data": {"detail": "Pi JSON task completed", "from": "running", "task_id": "draft-remediation", "to": "succeeded"}, "sequence": 18, "type": "task_transition"}
+{"at": "2026-07-14T17:33:05.416565Z", "data": {"detail": "dependencies satisfied", "from": "planned", "task_id": "fresh-review", "to": "queued"}, "sequence": 19, "type": "task_transition"}
+{"at": "2026-07-14T17:33:05.455796Z", "data": {"detail": "worker claimed task", "from": "queued", "task_id": "fresh-review", "to": "running"}, "sequence": 20, "type": "task_transition"}
+{"at": "2026-07-14T17:33:05.482530Z", "data": {"attempt": 1, "task_id": "fresh-review"}, "sequence": 21, "type": "task_attempt_started"}
+{"at": "2026-07-14T17:33:05.595195Z", "data": {"attempt": 1, "fault_interrupt_after_seconds": null, "model": "gpt-5.6-luna", "provider": "openai-codex", "task_id": "fresh-review"}, "sequence": 22, "type": "pi_process_started"}
+{"at": "2026-07-14T17:33:18.705811Z", "data": {"attempt": 1, "model": "gpt-5.6-luna", "provider": "openai-codex", "read_paths": ["pi-handoff/remediation.md"], "stream_events": 123, "task_id": "fresh-review", "tool_calls": 1}, "sequence": 23, "type": "pi_result_validated"}
+{"at": "2026-07-14T17:33:18.737483Z", "data": {"model": "gpt-5.6-luna", "provider": "openai-codex", "read_paths": ["pi-handoff/remediation.md"], "stream_events": 123, "task_acknowledged": true, "task_id": "fresh-review", "tool_calls": 1}, "sequence": 24, "type": "task_execution_recorded"}
+{"at": "2026-07-14T17:33:18.791986Z", "data": {"detail": "Pi JSON task completed", "from": "running", "task_id": "fresh-review", "to": "succeeded"}, "sequence": 25, "type": "task_transition"}
+{"at": "2026-07-14T17:33:18.840881Z", "data": {"from": "running", "reason": null, "to": "completed"}, "sequence": 26, "type": "run_status"}
+{"at": "2026-07-14T17:33:18.889727Z", "data": {"path": "summary.md"}, "sequence": 27, "type": "summary_written"}

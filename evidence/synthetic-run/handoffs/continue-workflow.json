@@ -1,0 +1,13 @@
+{
+  "artifacts": [
+    "workspace/build/continuation.md"
+  ],
+  "completed": "Completed Continue from a persisted handoff in the synthetic workflow.",
+  "created_at": "2026-06-01T22:01:04Z",
+  "from_task": "continue-workflow",
+  "next_step": "Review the result from a fresh context against the original brief.",
+  "risks": [
+    "Synthetic evidence does not establish production reliability."
+  ],
+  "schema_version": 1
+}

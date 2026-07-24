@@ -1,0 +1,297 @@
+{
+  "completed_at": "2026-06-01T22:01:48Z",
+  "counters": {
+    "attempts": 7,
+    "creative_iterations": 5,
+    "failed_attempts": 1,
+    "handoffs": 3,
+    "retries": 2,
+    "tasks_started": 5,
+    "timed_out_attempts": 1
+  },
+  "created_at": "2026-06-01T22:00:00Z",
+  "external_services_enabled": false,
+  "objective": "Turn a synthetic product brief into reviewable artifacts while making retries, a timeout, continuation handoffs, fresh-context review, and five visual iterations visible to a morning operator.",
+  "run_id": "synthetic-nightwatch-cycle",
+  "runner": "synthetic",
+  "schema_version": 1,
+  "status": "completed",
+  "stop_reason": null,
+  "summary_path": "summary.md",
+  "synthetic_demonstration": true,
+  "tasks": [
+    {
+      "attempts": 1,
+      "depends_on": [],
+      "fresh_context": false,
+      "handoff_from": null,
+      "history": [
+        {
+          "at": "2026-06-01T22:00:00Z",
+          "detail": "brief accepted",
+          "from": null,
+          "to": "planned"
+        },
+        {
+          "at": "2026-06-01T22:00:03Z",
+          "detail": "dependencies satisfied",
+          "from": "planned",
+          "to": "queued"
+        },
+        {
+          "at": "2026-06-01T22:00:04Z",
+          "detail": "worker claimed task",
+          "from": "queued",
+          "to": "running"
+        },
+        {
+          "at": "2026-06-01T22:00:14Z",
+          "detail": "Frame the operator problem completed",
+          "from": "running",
+          "to": "succeeded"
+        }
+      ],
+      "id": "frame-problem",
+      "kind": "analysis",
+      "max_attempts": 1,
+      "model_route": "analysis",
+      "outputs": [
+        "workspace/analysis/problem.md"
+      ],
+      "status": "succeeded",
+      "timeout_seconds": 30.0,
+      "title": "Frame the operator problem"
+    },
+    {
+      "attempts": 2,
+      "depends_on": [
+        "frame-problem"
+      ],
+      "fresh_context": false,
+      "handoff_from": "frame-problem",
+      "history": [
+        {
+          "at": "2026-06-01T22:00:00Z",
+          "detail": "brief accepted",
+          "from": null,
+          "to": "planned"
+        },
+        {
+          "at": "2026-06-01T22:00:16Z",
+          "detail": "dependencies satisfied",
+          "from": "planned",
+          "to": "queued"
+        },
+        {
+          "at": "2026-06-01T22:00:17Z",
+          "detail": "worker claimed task",
+          "from": "queued",
+          "to": "running"
+        },
+        {
+          "at": "2026-06-01T22:00:26Z",
+          "detail": "synthetic transient failure on attempt 1",
+          "from": "running",
+          "to": "failed"
+        },
+        {
+          "at": "2026-06-01T22:00:27Z",
+          "detail": "retry after: synthetic transient failure on attempt 1",
+          "from": "failed",
+          "to": "retry_wait"
+        },
+        {
+          "at": "2026-06-01T22:00:30Z",
+          "detail": "retry delay complete (0s)",
+          "from": "retry_wait",
+          "to": "queued"
+        },
+        {
+          "at": "2026-06-01T22:00:31Z",
+          "detail": "worker claimed task",
+          "from": "queued",
+          "to": "running"
+        },
+        {
+          "at": "2026-06-01T22:00:41Z",
+          "detail": "Build the bounded workflow completed",
+          "from": "running",
+          "to": "succeeded"
+        }
+      ],
+      "id": "build-workflow",
+      "kind": "implementation",
+      "max_attempts": 2,
+      "model_route": "implementation",
+      "outputs": [
+        "workspace/build/workflow.md"
+      ],
+      "status": "succeeded",
+      "timeout_seconds": 30.0,
+      "title": "Build the bounded workflow"
+    },
+    {
+      "attempts": 2,
+      "depends_on": [
+        "build-workflow"
+      ],
+      "fresh_context": false,
+      "handoff_from": "build-workflow",
+      "history": [
+        {
+          "at": "2026-06-01T22:00:00Z",
+          "detail": "brief accepted",
+          "from": null,
+          "to": "planned"
+        },
+        {
+          "at": "2026-06-01T22:00:43Z",
+          "detail": "dependencies satisfied",
+          "from": "planned",
+          "to": "queued"
+        },
+        {
+          "at": "2026-06-01T22:00:44Z",
+          "detail": "worker claimed task",
+          "from": "queued",
+          "to": "running"
+        },
+        {
+          "at": "2026-06-01T22:00:53Z",
+          "detail": "synthetic timeout on attempt 1",
+          "from": "running",
+          "to": "timed_out"
+        },
+        {
+          "at": "2026-06-01T22:00:54Z",
+          "detail": "retry after: synthetic timeout on attempt 1",
+          "from": "timed_out",
+          "to": "retry_wait"
+        },
+        {
+          "at": "2026-06-01T22:00:57Z",
+          "detail": "retry delay complete (0s)",
+          "from": "retry_wait",
+          "to": "queued"
+        },
+        {
+          "at": "2026-06-01T22:00:58Z",
+          "detail": "worker claimed task",
+          "from": "queued",
+          "to": "running"
+        },
+        {
+          "at": "2026-06-01T22:01:08Z",
+          "detail": "Continue from a persisted handoff completed",
+          "from": "running",
+          "to": "succeeded"
+        }
+      ],
+      "id": "continue-workflow",
+      "kind": "continuation",
+      "max_attempts": 2,
+      "model_route": "implementation",
+      "outputs": [
+        "workspace/build/continuation.md"
+      ],
+      "status": "succeeded",
+      "timeout_seconds": 30.0,
+      "title": "Continue from a persisted handoff"
+    },
+    {
+      "attempts": 1,
+      "depends_on": [
+        "continue-workflow"
+      ],
+      "fresh_context": true,
+      "handoff_from": "continue-workflow",
+      "history": [
+        {
+          "at": "2026-06-01T22:00:00Z",
+          "detail": "brief accepted",
+          "from": null,
+          "to": "planned"
+        },
+        {
+          "at": "2026-06-01T22:01:10Z",
+          "detail": "dependencies satisfied",
+          "from": "planned",
+          "to": "queued"
+        },
+        {
+          "at": "2026-06-01T22:01:11Z",
+          "detail": "worker claimed task",
+          "from": "queued",
+          "to": "running"
+        },
+        {
+          "at": "2026-06-01T22:01:19Z",
+          "detail": "Run a fresh-eyes review completed",
+          "from": "running",
+          "to": "succeeded"
+        }
+      ],
+      "id": "fresh-eyes-review",
+      "kind": "review",
+      "max_attempts": 1,
+      "model_route": "review",
+      "outputs": [
+        "workspace/review/fresh-eyes.md"
+      ],
+      "status": "succeeded",
+      "timeout_seconds": 30.0,
+      "title": "Run a fresh-eyes review"
+    },
+    {
+      "attempts": 1,
+      "depends_on": [
+        "fresh-eyes-review"
+      ],
+      "fresh_context": false,
+      "handoff_from": null,
+      "history": [
+        {
+          "at": "2026-06-01T22:00:00Z",
+          "detail": "brief accepted",
+          "from": null,
+          "to": "planned"
+        },
+        {
+          "at": "2026-06-01T22:01:21Z",
+          "detail": "dependencies satisfied",
+          "from": "planned",
+          "to": "queued"
+        },
+        {
+          "at": "2026-06-01T22:01:22Z",
+          "detail": "worker claimed task",
+          "from": "queued",
+          "to": "running"
+        },
+        {
+          "at": "2026-06-01T22:01:46Z",
+          "detail": "Creative loop completed 5 iterations",
+          "from": "running",
+          "to": "succeeded"
+        }
+      ],
+      "id": "creative-loop",
+      "kind": "creative",
+      "max_attempts": 1,
+      "model_route": "creative",
+      "outputs": [
+        "workspace/creative/iteration-01.svg",
+        "workspace/creative/iteration-02.svg",
+        "workspace/creative/iteration-03.svg",
+        "workspace/creative/iteration-04.svg",
+        "workspace/creative/iteration-05.svg",
+        "workspace/creative/report.md"
+      ],
+      "status": "succeeded",
+      "timeout_seconds": 30.0,
+      "title": "Run five screenshot-based creative iterations"
+    }
+  ],
+  "title": "Offline overnight orchestration demonstration",
+  "updated_at": "2026-06-01T22:01:50Z"
+}

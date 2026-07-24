@@ -1,0 +1,68 @@
+{
+  "completed_at": "2026-07-14T16:19:28.742985Z",
+  "counters": {
+    "attempts": 1,
+    "creative_iterations": 0,
+    "failed_attempts": 0,
+    "handoffs": 0,
+    "retries": 0,
+    "tasks_started": 1,
+    "timed_out_attempts": 0
+  },
+  "created_at": "2026-07-14T16:18:48.946113Z",
+  "external_services_enabled": true,
+  "objective": "Review this fictional Moonleaf proposal: defer notification permission until after a user saves a first plant and selects a care window; show a short pre-permission explanation; preserve a visible skip path; allow reminders to be enabled later. Produce a concise review covering alignment, one important risk, acceptance criteria, and the next human validation gate. Moonleaf and all scenario details are synthetic. Do not claim user research, production evidence, or measured impact.",
+  "run_id": "pi-moonleaf-review",
+  "runner": "pi-json",
+  "schema_version": 1,
+  "status": "completed",
+  "stop_reason": null,
+  "summary_path": "summary.md",
+  "synthetic_demonstration": true,
+  "tasks": [
+    {
+      "attempts": 1,
+      "depends_on": [],
+      "fresh_context": true,
+      "handoff_from": null,
+      "history": [
+        {
+          "at": "2026-07-14T16:18:48.946113Z",
+          "detail": "brief accepted",
+          "from": null,
+          "to": "planned"
+        },
+        {
+          "at": "2026-07-14T16:18:49.012946Z",
+          "detail": "dependencies satisfied",
+          "from": "planned",
+          "to": "queued"
+        },
+        {
+          "at": "2026-07-14T16:18:49.049495Z",
+          "detail": "worker claimed task",
+          "from": "queued",
+          "to": "running"
+        },
+        {
+          "at": "2026-07-14T16:19:28.689544Z",
+          "detail": "Pi JSON task completed",
+          "from": "running",
+          "to": "succeeded"
+        }
+      ],
+      "id": "review-moonleaf-plan",
+      "kind": "review",
+      "max_attempts": 1,
+      "model_route": "review",
+      "outputs": [
+        "workspace/pi-smoke/assessment.md"
+      ],
+      "status": "succeeded",
+      "timeout_seconds": 120.0,
+      "title": "Review the fictional Moonleaf remediation plan"
+    }
+  ],
+  "title": "Supervised Pi review of a fictional remediation plan",
+  "updated_at": "2026-07-14T16:19:28.791558Z"
+}

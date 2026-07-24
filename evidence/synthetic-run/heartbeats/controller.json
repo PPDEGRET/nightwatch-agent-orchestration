@@ -1,0 +1,10 @@
+{
+  "attempt": null,
+  "component": "controller",
+  "observed_at": "2026-06-01T22:01:49Z",
+  "run_id": "synthetic-nightwatch-cycle",
+  "schema_version": 1,
+  "sequence": 33,
+  "status": "completed",
+  "task_id": null
+}

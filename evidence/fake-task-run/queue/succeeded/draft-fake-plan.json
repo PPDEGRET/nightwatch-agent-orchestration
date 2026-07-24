@@ -1,0 +1,68 @@
+{
+  "attempts": 2,
+  "depends_on": [
+    "inspect-fake-brief"
+  ],
+  "fresh_context": false,
+  "handoff_from": "inspect-fake-brief",
+  "history": [
+    {
+      "at": "2026-07-14T17:02:28.147738Z",
+      "detail": "brief accepted",
+      "from": null,
+      "to": "planned"
+    },
+    {
+      "at": "2026-07-14T17:02:28.493798Z",
+      "detail": "dependencies satisfied",
+      "from": "planned",
+      "to": "queued"
+    },
+    {
+      "at": "2026-07-14T17:02:28.529780Z",
+      "detail": "worker claimed task",
+      "from": "queued",
+      "to": "running"
+    },
+    {
+      "at": "2026-07-14T17:02:28.704986Z",
+      "detail": "synthetic transient failure on attempt 1",
+      "from": "running",
+      "to": "failed"
+    },
+    {
+      "at": "2026-07-14T17:02:28.757838Z",
+      "detail": "retry after: synthetic transient failure on attempt 1",
+      "from": "failed",
+      "to": "retry_wait"
+    },
+    {
+      "at": "2026-07-14T17:02:28.930133Z",
+      "detail": "retry delay complete (0.1s)",
+      "from": "retry_wait",
+      "to": "queued"
+    },
+    {
+      "at": "2026-07-14T17:02:28.965562Z",
+      "detail": "worker claimed task",
+      "from": "queued",
+      "to": "running"
+    },
+    {
+      "at": "2026-07-14T17:02:29.167187Z",
+      "detail": "Draft a bounded remediation plan completed",
+      "from": "running",
+      "to": "succeeded"
+    }
+  ],
+  "id": "draft-fake-plan",
+  "kind": "implementation",
+  "max_attempts": 2,
+  "model_route": "implementation",
+  "outputs": [
+    "workspace/fake-task/plan/remediation.md"
+  ],
+  "status": "succeeded",
+  "timeout_seconds": 10.0,
+  "title": "Draft a bounded remediation plan"
+}

@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="560" viewBox="0 0 1000 560" role="img" aria-labelledby="title desc">
+  <title id="title">Reported historical five-iteration creative loop</title>
+  <desc id="desc">Sanitized reconstruction card based on my report of a creative Nightwatch workflow taking five screenshot and revision passes. Original screenshots are excluded.</desc>
+  <rect width="1000" height="560" rx="32" fill="#0b1016"/>
+  <rect x="48" y="48" width="904" height="464" rx="24" fill="#121a23" stroke="#273748"/>
+  <text x="92" y="115" fill="#f4b860" font-family="Arial, sans-serif" font-size="17" letter-spacing="2">REPORTED HISTORICAL OUTCOME</text>
+  <text x="92" y="238" fill="#f5f7fa" font-family="Arial, sans-serif" font-size="112" font-weight="700">5</text>
+  <text x="206" y="238" fill="#f5f7fa" font-family="Arial, sans-serif" font-size="56" font-weight="700">ITERATIONS</text>
+  <text x="92" y="294" fill="#b7c4d0" font-family="Arial, sans-serif" font-size="28">screenshot → critique → revision</text>
+  <line x1="92" y1="350" x2="908" y2="350" stroke="#273748"/>
+  <text x="92" y="405" fill="#8fa3b8" font-family="Arial, sans-serif" font-size="20">First-person report · original imagery excluded</text>
+  <text x="92" y="445" fill="#8fa3b8" font-family="Arial, sans-serif" font-size="20">Not presented as user research or aesthetic validation</text>
+</svg>

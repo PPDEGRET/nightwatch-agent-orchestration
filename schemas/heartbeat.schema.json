@@ -1,0 +1,18 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.invalid/nightwatch/heartbeat.schema.json",
+  "title": "Nightwatch heartbeat",
+  "type": "object",
+  "required": ["schema_version", "run_id", "component", "sequence", "observed_at", "status"],
+  "properties": {
+    "schema_version": {"const": 1},
+    "run_id": {"type": "string"},
+    "component": {"enum": ["controller", "worker"]},
+    "sequence": {"type": "integer", "minimum": 1},
+    "observed_at": {"type": "string"},
+    "status": {"type": "string"},
+    "task_id": {"type": ["string", "null"]},
+    "attempt": {"type": ["integer", "null"], "minimum": 1}
+  },
+  "additionalProperties": false
+}

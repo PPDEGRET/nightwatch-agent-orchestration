@@ -1,0 +1,13 @@
+{
+  "artifacts": [
+    "workspace/analysis/problem.md"
+  ],
+  "completed": "Completed Frame the operator problem in the synthetic workflow.",
+  "created_at": "2026-06-01T22:00:10Z",
+  "from_task": "frame-problem",
+  "next_step": "Implement the bounded workflow described by the brief.",
+  "risks": [
+    "The demonstration is synthetic and cannot establish real user demand."
+  ],
+  "schema_version": 1
+}

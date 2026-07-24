@@ -1,0 +1,68 @@
+{
+  "attempts": 2,
+  "depends_on": [
+    "frame-problem"
+  ],
+  "fresh_context": false,
+  "handoff_from": "frame-problem",
+  "history": [
+    {
+      "at": "2026-06-01T22:00:00Z",
+      "detail": "brief accepted",
+      "from": null,
+      "to": "planned"
+    },
+    {
+      "at": "2026-06-01T22:00:16Z",
+      "detail": "dependencies satisfied",
+      "from": "planned",
+      "to": "queued"
+    },
+    {
+      "at": "2026-06-01T22:00:17Z",
+      "detail": "worker claimed task",
+      "from": "queued",
+      "to": "running"
+    },
+    {
+      "at": "2026-06-01T22:00:26Z",
+      "detail": "synthetic transient failure on attempt 1",
+      "from": "running",
+      "to": "failed"
+    },
+    {
+      "at": "2026-06-01T22:00:27Z",
+      "detail": "retry after: synthetic transient failure on attempt 1",
+      "from": "failed",
+      "to": "retry_wait"
+    },
+    {
+      "at": "2026-06-01T22:00:30Z",
+      "detail": "retry delay complete (0s)",
+      "from": "retry_wait",
+      "to": "queued"
+    },
+    {
+      "at": "2026-06-01T22:00:31Z",
+      "detail": "worker claimed task",
+      "from": "queued",
+      "to": "running"
+    },
+    {
+      "at": "2026-06-01T22:00:41Z",
+      "detail": "Build the bounded workflow completed",
+      "from": "running",
+      "to": "succeeded"
+    }
+  ],
+  "id": "build-workflow",
+  "kind": "implementation",
+  "max_attempts": 2,
+  "model_route": "implementation",
+  "outputs": [
+    "workspace/build/workflow.md"
+  ],
+  "status": "succeeded",
+  "timeout_seconds": 30.0,
+  "title": "Build the bounded workflow"
+}

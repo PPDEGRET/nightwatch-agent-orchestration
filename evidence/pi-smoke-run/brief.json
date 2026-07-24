@@ -1,0 +1,38 @@
+{
+  "allowed_paths": [
+    "workspace/pi-smoke"
+  ],
+  "objective": "Review this fictional Moonleaf proposal: defer notification permission until after a user saves a first plant and selects a care window; show a short pre-permission explanation; preserve a visible skip path; allow reminders to be enabled later. Produce a concise review covering alignment, one important risk, acceptance criteria, and the next human validation gate. Moonleaf and all scenario details are synthetic. Do not claim user research, production evidence, or measured impact.",
+  "run_id": "pi-moonleaf-review",
+  "schema_version": 1,
+  "stop_conditions": {
+    "max_failures": 1,
+    "max_runtime_seconds": 180,
+    "max_tasks": 1
+  },
+  "synthetic_demonstration": true,
+  "tasks": [
+    {
+      "depends_on": [],
+      "fresh_context": true,
+      "handoff_from": null,
+      "id": "review-moonleaf-plan",
+      "kind": "review",
+      "model_route": "review",
+      "outputs": [
+        "workspace/pi-smoke/assessment.md"
+      ],
+      "produce_handoff": false,
+      "retry": {
+        "backoff_seconds": 0.0,
+        "max_attempts": 1,
+        "max_backoff_seconds": 30.0,
+        "multiplier": 2.0
+      },
+      "settings": {},
+      "timeout_seconds": 120.0,
+      "title": "Review the fictional Moonleaf remediation plan"
+    }
+  ],
+  "title": "Supervised Pi review of a fictional remediation plan"
+}

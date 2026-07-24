@@ -1,0 +1,10 @@
+{
+  "attempt": 1,
+  "component": "worker",
+  "observed_at": "2026-07-14T17:02:29.433230Z",
+  "run_id": "fake-moonleaf-readiness",
+  "schema_version": 1,
+  "sequence": 12,
+  "status": "completed",
+  "task_id": "review-fake-plan"
+}

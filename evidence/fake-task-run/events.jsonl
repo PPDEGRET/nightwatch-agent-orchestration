@@ -1,0 +1,24 @@
+{"at": "2026-07-14T17:02:28.147738Z", "data": {"runner": "synthetic", "synthetic": true}, "sequence": 1, "type": "run_created"}
+{"at": "2026-07-14T17:02:28.178147Z", "data": {"from": "created", "reason": null, "to": "running"}, "sequence": 2, "type": "run_status"}
+{"at": "2026-07-14T17:02:28.210043Z", "data": {"detail": "dependencies satisfied", "from": "planned", "task_id": "inspect-fake-brief", "to": "queued"}, "sequence": 3, "type": "task_transition"}
+{"at": "2026-07-14T17:02:28.252506Z", "data": {"detail": "worker claimed task", "from": "queued", "task_id": "inspect-fake-brief", "to": "running"}, "sequence": 4, "type": "task_transition"}
+{"at": "2026-07-14T17:02:28.282608Z", "data": {"attempt": 1, "task_id": "inspect-fake-brief"}, "sequence": 5, "type": "task_attempt_started"}
+{"at": "2026-07-14T17:02:28.405445Z", "data": {"from_task": "inspect-fake-brief", "path": "handoffs/inspect-fake-brief.json"}, "sequence": 6, "type": "handoff_written"}
+{"at": "2026-07-14T17:02:28.425215Z", "data": {"detail": "Inspect the fictional onboarding brief completed", "from": "running", "task_id": "inspect-fake-brief", "to": "succeeded"}, "sequence": 7, "type": "task_transition"}
+{"at": "2026-07-14T17:02:28.493798Z", "data": {"detail": "dependencies satisfied", "from": "planned", "task_id": "draft-fake-plan", "to": "queued"}, "sequence": 8, "type": "task_transition"}
+{"at": "2026-07-14T17:02:28.529780Z", "data": {"detail": "worker claimed task", "from": "queued", "task_id": "draft-fake-plan", "to": "running"}, "sequence": 9, "type": "task_transition"}
+{"at": "2026-07-14T17:02:28.558621Z", "data": {"attempt": 1, "task_id": "draft-fake-plan"}, "sequence": 10, "type": "task_attempt_started"}
+{"at": "2026-07-14T17:02:28.704986Z", "data": {"detail": "synthetic transient failure on attempt 1", "from": "running", "task_id": "draft-fake-plan", "to": "failed"}, "sequence": 11, "type": "task_transition"}
+{"at": "2026-07-14T17:02:28.757838Z", "data": {"detail": "retry after: synthetic transient failure on attempt 1", "from": "failed", "task_id": "draft-fake-plan", "to": "retry_wait"}, "sequence": 12, "type": "task_transition"}
+{"at": "2026-07-14T17:02:28.802406Z", "data": {"completed_attempts": 1, "delay_seconds": 0.1, "task_id": "draft-fake-plan"}, "sequence": 13, "type": "retry_scheduled"}
+{"at": "2026-07-14T17:02:28.930133Z", "data": {"detail": "retry delay complete (0.1s)", "from": "retry_wait", "task_id": "draft-fake-plan", "to": "queued"}, "sequence": 14, "type": "task_transition"}
+{"at": "2026-07-14T17:02:28.965562Z", "data": {"detail": "worker claimed task", "from": "queued", "task_id": "draft-fake-plan", "to": "running"}, "sequence": 15, "type": "task_transition"}
+{"at": "2026-07-14T17:02:28.999166Z", "data": {"attempt": 2, "task_id": "draft-fake-plan"}, "sequence": 16, "type": "task_attempt_started"}
+{"at": "2026-07-14T17:02:29.147405Z", "data": {"from_task": "draft-fake-plan", "path": "handoffs/draft-fake-plan.json"}, "sequence": 17, "type": "handoff_written"}
+{"at": "2026-07-14T17:02:29.167187Z", "data": {"detail": "Draft a bounded remediation plan completed", "from": "running", "task_id": "draft-fake-plan", "to": "succeeded"}, "sequence": 18, "type": "task_transition"}
+{"at": "2026-07-14T17:02:29.245613Z", "data": {"detail": "dependencies satisfied", "from": "planned", "task_id": "review-fake-plan", "to": "queued"}, "sequence": 19, "type": "task_transition"}
+{"at": "2026-07-14T17:02:29.282278Z", "data": {"detail": "worker claimed task", "from": "queued", "task_id": "review-fake-plan", "to": "running"}, "sequence": 20, "type": "task_transition"}
+{"at": "2026-07-14T17:02:29.308026Z", "data": {"attempt": 1, "task_id": "review-fake-plan"}, "sequence": 21, "type": "task_attempt_started"}
+{"at": "2026-07-14T17:02:29.466316Z", "data": {"detail": "Review the fictional plan with fresh eyes completed", "from": "running", "task_id": "review-fake-plan", "to": "succeeded"}, "sequence": 22, "type": "task_transition"}
+{"at": "2026-07-14T17:02:29.536398Z", "data": {"from": "running", "reason": null, "to": "completed"}, "sequence": 23, "type": "run_status"}
+{"at": "2026-07-14T17:02:29.598495Z", "data": {"path": "summary.md"}, "sequence": 24, "type": "summary_written"}
