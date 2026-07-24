@@ -250,6 +250,6 @@ Nightwatch is licensed under the [Apache License 2.0](LICENSE), which I selected
 
 ## Status
 
-**Portfolio status:** ready for public repository publication. Technical gates, Apache-2.0 licensing, and upstream attribution are recorded in [`PUBLISH_CHECKLIST.md`](PUBLISH_CHECKLIST.md). No deployment has been authorized.
+**Portfolio status:** published as a public-source case study. Technical gates, Apache-2.0 licensing, upstream attribution, and hosted CI are recorded in [`PUBLISH_CHECKLIST.md`](PUBLISH_CHECKLIST.md). No deployment has been authorized.
 
 **Next validation gate:** a real but non-sensitive task defined by another person, with acceptance criteria fixed before execution. This is product validation—not permission to deploy or claim general autonomy.

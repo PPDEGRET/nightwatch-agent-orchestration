@@ -153,4 +153,4 @@ The following decisions were recorded on 2026-07-14:
 
 ## Publication preparation status
 
-All requested attribution, evidence, source-path, claim, visual, repository-setting, and license decisions are recorded. Public repository publication was authorized on 2026-07-23.
+All requested attribution, evidence, source-path, claim, visual, repository-setting, and license decisions are recorded. Public repository publication was authorized on 2026-07-23 and completed on 2026-07-24 at <https://github.com/PPDEGRET/nightwatch-agent-orchestration>.

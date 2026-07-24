@@ -2,7 +2,7 @@
 
 ## Current recommendation
 
-**Ready for public repository publication. All preparation gates and publication decisions are recorded.**
+**Published as a public-source case study. Preparation gates and publication decisions are recorded.**
 
 Nightwatch now has deterministic offline evidence, a separate synthetic CLI run, one acknowledged Pi smoke task, and one supervised two-task Pi recovery/handoff run. The public claim must remain bounded to local agent orchestration and its operational lessons.
 
@@ -27,6 +27,7 @@ Nightwatch now has deterministic offline evidence, a separate synthetic CLI run,
 - [x] No raw prompts, sessions, transcripts, credentials, caches, dependencies, or private source evidence are retained.
 - [x] Claims distinguish reproduced, supervised external, reported historical, and unvalidated evidence.
 - [x] No deployment, outreach, or production action was performed.
+- [x] GitHub Actions runs all 51 tests and Python compilation successfully on Linux.
 
 ## Final automated verification — 2026-07-14
 
@@ -52,7 +53,7 @@ Nightwatch now has deterministic offline evidence, a separate synthetic CLI run,
 - [x] **Final visual review:** site, four screenshots, README presentation, and Mermaid diagrams reviewed.
 - [x] **Claim review:** bounded claims and explicit non-claims fixed for publication.
 
-No preparation blocker remains. Public repository publication was authorized on 2026-07-23; deployment remains unauthorized.
+Public repository publication was authorized on 2026-07-23 and completed on 2026-07-24 at <https://github.com/PPDEGRET/nightwatch-agent-orchestration>. Deployment remains unauthorized.
 
 ## Recommended public claim
 
