@@ -2,8 +2,6 @@
 
 **A portable case study in bounded overnight coding-agent orchestration—and the failures that shaped Crab/Pi.**
 
-![Nightwatch synthetic run overview](screenshots/nightwatch-overview.png)
-
 > **Synthetic demonstration:** the default run makes no model, account, agent, or network call. Historical evidence is aggregate-only and clearly labeled.
 
 Nightwatch began as my custom local controller for turning a structured overnight brief into queued agent work, continuation handoffs, visual iterations, and a next-morning review. This public repository is a new Python reimplementation—not the exact historical Bash runtime. It preserves the operating thesis while replacing the brittle migration snapshot with a deterministic, standard-library implementation.
